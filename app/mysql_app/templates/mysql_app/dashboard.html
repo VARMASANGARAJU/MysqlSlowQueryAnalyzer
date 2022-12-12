@@ -1,0 +1,137 @@
+{% extends 'mysql_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+
+
+
+   <div class="container-fluid">
+
+               <!-- Page Heading -->
+
+               <!-- Content Row -->
+               <div class="row">
+
+                   <!-- Total Slow Queries Card -->
+                   <div class="col-xl-3 col-md-6 mb-4">
+                       <div class="card border-left-primary shadow h-100 py-2">
+                           <div class="card-body">
+                               <div class="row no-gutters align-items-center">
+                                   <div class="col mr-2">
+                                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                           Total Slow Queries</div>
+                                       <div class="h3 mb-0 font-weight-bold text-gray-800">30</div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <!-- Top Slow Query Instance -->
+                   <div class="col-xl-3 col-md-6 mb-4">
+                       <div class="card border-left-success shadow h-100 py-2">
+                           <div class="card-body">
+                               <div class="row no-gutters align-items-center">
+                                   <div class="col mr-2">
+                                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Top Slow Query Instance</div>
+                                       <div class="h3 mb-0 font-weight-bold text-gray-800">Pickily</div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <!-- Max Query Time Card -->
+                   <div class="col-xl-3 col-md-6 mb-4">
+                       <div class="card border-left-warning shadow h-100 py-2">
+                           <div class="card-body">
+                               <div class="row no-gutters align-items-center">
+                                   <div class="col mr-2">
+                                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                           Max Query Time</div>
+                                       <div class="h3 mb-0 font-weight-bold text-gray-800">14.76s</div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <!-- Max Count of Slow Query Card -->
+                   <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Max Count of Slow Query</div>
+                                    <div class="h3 mb-0 font-weight-bold text-gray-800">16</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               </div>
+
+
+               <!-- Content Row -->
+
+               <div class="row">
+                 <div class="col">
+                     <!-- Illustrations -->
+                     <div class="card shadow mb-4">
+                         <div class="card-header py-3">
+                             <h6 class="m-0 font-weight-bold text-info">Mysql Instances</h6>
+                             <a  href="{% url 'view_instances' %}" ><button class="btn btn-outline-info btn-sm right_align" type="button" > View All</button></a>
+                             {% comment %} <button class="btn btn-info" name="button" ><i class="fa fa-plus" aria-hidden="true"></i> <a style="color:white;text-decoration:none;" href="{% url 'add_instance' %}">Add</a></button> {% endcomment %}
+                         </div>
+
+                        <div class="card-body overflow-auto">
+                         <table class="table">
+                             <thead>
+                               <tr>
+                                 <th scope="col">Instance Name</th>
+                                 <th scope="col">Total Count</th>
+                                 <th scope="col">Max Time</th>
+                                 <th scope="col">Max Count</th>
+                                 <th scope="col"></th>
+                               </tr>
+                             </thead>
+                             <tbody>
+                               {% for instance in instances %}
+                              <tr>
+                                <td>ljkbhvgcf</td>
+                                <td>lkjbhvgcf</td>
+                                <td>XXYY </td>
+                                <td>0</td>
+                                <td><a><button type="button" class="btn btn-info btn-sm">View</button></a></td>
+                              </tr>
+                              {% endfor %}
+                             </tbody>
+                           </table>
+                            </div>
+                     </div>
+                 </div>
+               </div>
+               <!-- Content Row -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- componenets -->
+  <!--===== MAIN JS =====-->
+
+  {% endblock %}

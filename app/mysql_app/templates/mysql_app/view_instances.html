@@ -1,0 +1,78 @@
+{% extends 'mysql_app/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+         <div class="container-fluid">
+
+           <!-- top component -->
+                 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+                     <h5 class="my-0 mr-md-auto font-weight-normal">View Instances</h5>
+                     </nav>
+                 </div>
+           <!-- end of top component -->
+
+           <!-- search bar for filters -->
+           <div class="card">
+             <div class="card-body">
+                 <form class="" action="#" method="post">
+                       <div class="form-row">
+
+                         <div class="form-group col-md-2">
+                           <input type="text" class="form-control input-style" placeholder="Instance Name">
+                         </div>
+
+                         <div class="form-group col-md-2">
+                           <input type="text" class="form-control input-style" placeholder="User">
+                         </div>
+                         <div class="form-group col-md-2">
+                            <button class="btn btn-outline-primary" name="button">Search</button>
+                         </div>
+                       </div>
+                 </form>
+             </div>
+           </div>
+           <br>
+
+           <!-- end of search filters -->
+
+           <!-- start of table -->
+                   <div class="card">
+                       <div class="card-body overflow-auto">
+                         <table class="table">
+                               <thead>
+                                 <tr>
+                                   <th scope="col">#</th>
+                                   <th scope="col">Instance Name</th>
+                                   <th scope="col">User</th>
+                                   <th scope="col">IP Address</th>
+                                   <th scope="col">Domain</th>
+                                   <th scope="col">Log File Path</th>
+                                   <th scope="col">Created Date</th>
+                                   <th scope="col"></th>
+                                 </tr>
+                               </thead>
+                               <tbody>
+                                {% for instance in instances %}
+                                    <tr>
+                                      <th scope="row">{{ forloop.counter }}</th>
+                                      <td>{{instance.name}}</td>
+                                      <td>{{instance.user}}</td>
+          
+                                      <td>{{instance.ip_address}}</td>
+                                      <td>{{instance.domain}}</td>
+                                      <td>{{instance.log_file_path}}</td>
+                                      <td>{{instance.created_at}}</td>
+                                      <td><a href="{% url 'view_logs' instance.id %}"><button type="button" class="btn btn-info btn-sm">View Logs</button></a></td>
+                                    </tr>
+                                {% endfor %}
+                               </tbody>
+
+                           </table>
+                       </div>
+                   </div>
+           <!-- end of table -->
+          <!-- Content Row -->
+          </div>
+
+{% endblock %}

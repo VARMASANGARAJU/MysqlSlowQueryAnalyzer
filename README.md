@@ -1,2 +1,1 @@
-# MysqlSlowQueryAnalyzer
-MysqlSlowQueryAnalyzer
+# StockoneMonitoring
